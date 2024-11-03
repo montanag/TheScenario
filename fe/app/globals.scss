@@ -1,0 +1,139 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(158, 158, 158);
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding: 40px;
+  gap: 30px
+}
+
+.data-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.container {
+  border: 1px solid rgb(48, 48, 48);
+  border-radius: 10px;
+  padding: 20px;
+
+  h2 {
+    margin-bottom: 10px;
+  }
+}
+
+.data-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 15px;
+
+  .meta-data {
+    display: flex;
+    flex-direction: column;
+
+    .time-data {
+      display: flex;
+      gap: 5px;
+    }
+  }
+
+  input {
+    background-color: rgb(223, 223, 223);
+    border-radius: 5px;
+    padding: 5px;
+    width: 100%;
+    color: black;
+
+    &:focus {
+      outline: none;
+    }
+
+    &::placeholder {
+      color: #7c7c7c;
+      opacity: 1;
+    }
+  }
+
+  .button-container {
+    display: flex;
+    gap: 10px;
+
+    button {
+      padding: 5px 10px;
+      border: none;
+      border-radius: 5px;
+      background: rgb(48, 48, 48);
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: rgb(64, 64, 64);
+    }
+
+    button.danger {
+      background: rgb(130, 0, 0);
+
+      &:hover {
+        background: rgb(150, 0, 0);
+      }
+    }
+  }
+}
+
+h1 {
+  font-size: 50px;
+}
+
+h2 {
+  font-size: 30px;
+}
+
+h3 {
+  font-size: 20px;
+}
+
+.notification {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 4px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+}
